@@ -1,2 +1,5 @@
-package org.example.CoffeeMachine;public interface iEspresso {
+package org.example.CoffeeMachine;
+
+public interface iEspresso {
+    String espresso();
 }

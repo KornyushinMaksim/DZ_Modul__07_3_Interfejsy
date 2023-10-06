@@ -1,26 +1,30 @@
-package org.example;
+package org.example.CoffeeMachine;
 
-public class CoffeeMachine {
-    protected String name;
-    protected String model;
-    protected double grandeCoffeeContainer;//молотый кофе
-    protected double waterContainer;
+public class CoffeeMachine extends FabricMachine{
 
     public CoffeeMachine() {
+        super();
     }
 
-    public CoffeeMachine(String name, String model, double grandeCoffeeContainer, double waterContainer) {
-        this.name = name;
-        this.model = model;
-        this.grandeCoffeeContainer = grandeCoffeeContainer;
-        this.waterContainer = waterContainer;
+    public CoffeeMachine(String name, String model, int grandeCoffeeContainer, int waterContainer) {
+        super(name, model, grandeCoffeeContainer, waterContainer);
     }
 
-    private boolean testModel(){
-        if ((this.model.contains("100")) || (this.model.contains("500")) || (this.model.contains("1000"))){
-            return true;
+    @Override
+    public String makeCoffee(int value) {
+        String str = "";
+        if (this.power) {
+            switch (value) {
+                case 1:
+                    str = espresso();
+                    break;
+                case 2:
+                    str = americano();
+                    break;
+            }
         } else {
-            return false;
+            str = "Кофемашина выключена";
         }
+        return str;
     }
 }

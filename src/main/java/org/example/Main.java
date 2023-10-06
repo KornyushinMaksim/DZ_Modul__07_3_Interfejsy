@@ -1,19 +1,45 @@
+
+
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import org.example.CoffeeMachine.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        CoffeeMachine mini = new CoffeeMachine(
+                "MINI", "MINI250", 250, 2500);
+        CappuccinoMachine max = new CappuccinoMachine(
+                "MAX", "MAX1000", 1000, 10000, 1000);
+        CompactMachine compact = new CompactMachine(
+                "COMPACT", "COM500", 500, 5000,500);
+        System.out.println(mini.getGrandeCoffeeContainer());
+        System.out.println(mini.getWaterContainer());
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        iCoffee iC = mini;
+        iC.power(true);
+        System.out.println(mini.isPower());
+        System.out.println(iC.makeCoffee(1));
+        System.out.println(mini);
+        System.out.println(iC.makeCoffee(2));
+        System.out.println(mini);
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
-        }
+        max.power(true);
+        System.out.println(max.makeCoffee(1));
+        System.out.println(max);
+        System.out.println(max.makeCoffee(2));
+        System.out.println(max);
+        max.setVolume(200);
+        System.out.println(max.makeCoffee(3));
+        System.out.println(max);
+        max.setVolume(400);
+        System.out.println(max.makeCoffee(4));
+        System.out.println(max);
+
+        compact.power(true);
+        System.out.println(compact.makeCoffee(1));
+        System.out.println(compact);
+        compact.setVolume(200);
+        System.out.println(compact.makeCoffee(2));
+        System.out.println(compact);
     }
 }

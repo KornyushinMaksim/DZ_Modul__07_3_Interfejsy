@@ -1,16 +1,13 @@
 package org.example.CoffeeMachine;
 
-public class CompactMachine extends CappuccinoMachine{
-    private int beansCoffeeContainer;
+public class EspressoMachine extends FabricMachine {
 
-    public CompactMachine() {
+    public EspressoMachine() {
         super();
     }
 
-    public CompactMachine(
-            String name, String model) {
+    public EspressoMachine(String name, String model) {
         super(name, model);
-            this.beansCoffeeContainer = super.grandeCoffeeContainer;
     }
 
     @Override
@@ -19,10 +16,10 @@ public class CompactMachine extends CappuccinoMachine{
             if (error()) {
                 switch (value) {
                     case 0:
-                        americano();
+                        espresso();
                         break;
                     case 1:
-                        latte();
+                        americano();
                         break;
                 }
             } else {
